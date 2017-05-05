@@ -12,7 +12,9 @@ class Nodes:
                  DRV="0",
                  CD1="0", CD2="0", CD3="0", CD4="0", CD5="0", CD6="0", CD7="0", CD8="0",
                  CU1="0", CU2="0", CU3="0", CU4="0", CU5="0", CU6="0", CU7="0", CU8="0",
-                 CMD1="1", CMD2="2", CMD3="3", CMD4="4", CMD5="0", CMD6="0", CMD7="0", CMD8="0" ):  # Имя узла, номер узла,
+                 #CMD1="1", CMD2="2", CMD3="3", CMD4="4", CMD5="0", CMD6="0", CMD7="0", CMD8="0",
+                 BackNode1="E24-11", BackNode2="E24-12", ForwardNode1="E19-11", ForwardNode2="E19-12",
+                 STD1="10", STD2="20", STD3="13", STD4="23", STD5="17", STD6="27"):  # Имя узла, номер узла,
 
         self.sys = Sys
         self.name = Name
@@ -40,14 +42,27 @@ class Nodes:
         self.CU7 = CU7
         self.CU8 = CU8
 
-        self.CMD1 = CMD1
-        self.CMD2 = CMD2
-        self.CMD3 = CMD3
-        self.CMD4 = CMD4
-        self.CMD5 = CMD5
-        self.CMD6 = CMD6
-        self.CMD7 = CMD7
-        self.CMD8 = CMD8
+        # self.CMD1 = CMD1
+        # self.CMD2 = CMD2
+        # self.CMD3 = CMD3
+        # self.CMD4 = CMD4
+        # self.CMD5 = CMD5
+        # self.CMD6 = CMD6
+        # self.CMD7 = CMD7
+        # self.CMD8 = CMD8
+
+        self.backNode1 = BackNode1
+        self.backNode2 = BackNode2
+        self.forwardNode1 = ForwardNode1
+        self.forwardNode2 = ForwardNode2
+
+        self.std1 = STD1
+        self.std2 = STD2
+        self.std3 = STD3
+        self.std4 = STD4
+        self.std5 = STD5
+        self.std6 = STD6
+
 
         self.STDs = ['301', '401', '302', '505', '605', '521']
 
@@ -73,8 +88,8 @@ class Nodes:
         print("CU1 - ", self.CU1)
         print("CU2 - ", self.CU2)
         print("Приказы: ")
-        print("CMD1 - ", self.CMD1)
-        print("CMD2 - ", self.CMD2)
+        # print("CMD1 - ", self.CMD1)
+        # print("CMD2 - ", self.CMD2)
         print("**************************************************************")
 
     def createDirectory(self):
@@ -130,14 +145,14 @@ CounterNode	=	""" + self.CD1 + """	1-
 CounterNode	=	""" + self.CD2 + """	2-
 CounterNode	=	""" + self.CU1 + """	1+
 CounterNode	=	""" + self.CU2 + """	2+
-BackNode	=	E3-9
-BackNode	=	E1-207
-ForwardNode	=	E1-11
-ForwardNode	=	E10-48
-ChangeStage	=	0	""" + self.STDs[4] + """	'Выпуск с 1 нитки'
-ChangeStage	=	0	""" + self.STDs[1] + """	'Выпуск со 2 нитки'
-ChangeStage	=	0	416	'Сход с В21 на В32'
-ChangeStage	=	0	426	'Сход с В21 на В31'
+BackNode	=	""" + self.backNode1 + """
+BackNode	=	""" + self.backNode2 + """
+ForwardNode	=	""" + self.forwardNode1 + """
+ForwardNode	=	""" + self.forwardNode2 + """
+ChangeStage	=	0	""" + self.std1 + """	'Выпуск с 1 нитки'
+ChangeStage	=	0	""" + self.std2 + """	'Выпуск со 2 нитки'
+ChangeStage	=	0	""" + self.std3 + """	'Сход с В21 на В32'
+ChangeStage	=	0	""" + self.std4 + """	'Сход с В21 на В31'
 }
 """)
 
@@ -178,7 +193,9 @@ if __name__ == "__main__":
 
     NewNodeMSV = Nodes(ar[0], ar[1], ar[2], ar[3], ar[4], ar[5], ar[6],
                        ar[7], ar[8], ar[9], ar[10], ar[11], ar[12], ar[13], ar[14],
-                       ar[15], ar[16], ar[17], ar[18], ar[19], ar[20], ar[21], ar[22])
+                       ar[15], ar[16], ar[17], ar[18], ar[19], ar[20], ar[21], ar[22],
+                       ar[23], ar[24], ar[25], ar[26], # узлы впереди, сзади
+                       ar[27], ar[28], ar[29], ar[30], ar[31], ar[32]) # стадии
 
     NewNodeMSV.descriptionNode()       #печатаем свойства узла
     NewNodeMSV.createDirectory()      #готовим директорию
