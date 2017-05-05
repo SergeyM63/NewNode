@@ -197,7 +197,7 @@ if __name__ == "__main__":
                        ar[23], ar[24], ar[25], ar[26], # узлы впереди, сзади
                        ar[27], ar[28], ar[29], ar[30], ar[31], ar[32]) # стадии
 
-    NewNodeMSV.descriptionNode()       #печатаем свойства узла
+    #NewNodeMSV.descriptionNode()       #печатаем свойства узла
     NewNodeMSV.createDirectory()      #готовим директорию
     NewNodeMSV.get_file_RoutineTXT()  #создаём файл Routine.txt
     NewNodeMSV.get_file_NodesTXT()    #создаём файл Nodes.txt
