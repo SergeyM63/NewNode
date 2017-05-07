@@ -1,6 +1,4 @@
 for i in range (10):
-
-
     var = str(i)
     print ("""    self.label_"""+var+""" = QtGui.QLabel("Current value_"""+var+""":")
     self.spinBox_"""+var+""" = QtGui.QSpinBox()
