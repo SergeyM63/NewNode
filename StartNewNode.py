@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
 
 
-    with open("input.txt") as file:  # читаем построчно из входного файла
+    with open("input_E10-30.txt") as file:  # читаем построчно из входного файла
         ar = [row.strip() for row in file]  # и передаём строки в список
     print(ar)
 
